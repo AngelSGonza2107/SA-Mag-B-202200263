@@ -1,5 +1,7 @@
 # Tarea 2: Portal de noticias con IA, Docker Compose y balanceo de carga con NGINX
 
+> Enlace al vídeo demostrativo en YouTube: [Tarea No. 2 - Portal de noticias con IA, Docker Compose y balanceo de carga con NGINX](https://youtu.be/r5u9EV1XhJ4)
+
 SAGaming es un proyecto académico para publicar noticias de videojuegos y demostrar el funcionamiento de NGINX como enrutador, proxy inverso y balanceador de carga.
 
 Las noticias son ficticias y fueron generadas o asistidas por inteligencia artificial.
