@@ -1,0 +1,48 @@
+services:
+  backend1:
+    build: ./backend
+    environment:
+      PORT: 3000
+      INSTANCE_ID: backend-1
+    expose:
+      - "3000"
+    networks:
+      - portal-network
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1:3000/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  backend2:
+    build: ./backend
+    environment:
+      PORT: 3000
+      INSTANCE_ID: backend-2
+    expose:
+      - "3000"
+    networks:
+      - portal-network
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1:3000/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      backend1:
+        condition: service_healthy
+      backend2:
+        condition: service_healthy
+    networks:
+      - portal-network
+
+networks:
+  portal-network:
+    driver: bridge

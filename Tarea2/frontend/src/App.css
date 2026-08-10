@@ -1,0 +1,25 @@
+.article-copy {
+  color: #d4d4d8;
+  font-size: 1.075rem;
+  line-height: 1.9;
+}
+
+.article-copy p {
+  margin: 0 0 1.6rem;
+}
+
+.article-copy p:first-child::first-letter {
+  float: left;
+  margin: 0.13em 0.12em 0 0;
+  color: #b9ff2c;
+  font-size: 4.3rem;
+  font-weight: 900;
+  line-height: 0.8;
+}
+
+@media (max-width: 640px) {
+  .article-copy {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+}
